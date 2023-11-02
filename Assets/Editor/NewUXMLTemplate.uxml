@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:VisualElement style="flex-grow: 1; align-self: stretch; justify-content: space-around; align-items: center; flex-direction: flex-start; flex-wrap: wrap; -unity-text-align: upper-center; white-space: nowrap; position: relative;">
+        <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" style="align-items: auto;" />
+        <ui:Button text="Print Stuff" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Print" style="white-space: nowrap; -unity-text-align: middle-left;" />
+        <ui:Toggle label="Toggle" name="MakeLive" />
+        <ui:IntegerField label="Integer Field" value="42" name="Age" />
+    </ui:VisualElement>
+    <uie:ObjectField label="Target" name="Target" type="UnityEngine.Transform, UnityEngine.CoreModule" />
+</ui:UXML>
