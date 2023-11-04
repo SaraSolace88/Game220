@@ -1,0 +1,5 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <ui:Button text="Generate" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Generate" />
+    <ui:IntegerField label="Amount" value="0" name="Amount" />
+    <ui:Toggle label="Show Walls" name="ShowWalls" value="true" />
+</ui:UXML>

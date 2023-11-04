@@ -1,0 +1,29 @@
+fileFormatVersion: 2
+guid: ccba89db6afdb904c8ffa2a7bc221f7e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - m_ViewDataDictionary: {instanceID: 0}
+  - floor: {fileID: 5546738900710745022, guid: df2e34383bd81304ab77b7d9425fc2be, type: 3}
+  - EastEnd: {fileID: 5710340258704795225, guid: ecb2b861e9f6d8a41ab6ce973ed6130b, type: 3}
+  - EastWall: {fileID: 123718394282079869, guid: 43c9829d44c6d8f499c1336401714b06, type: 3}
+  - HorizontalHall: {fileID: 2724209623713341330, guid: 7a9e1ec8f01d0004da77552a0abd425f, type: 3}
+  - northEastCorner: {fileID: 8151126414155341494, guid: 1a54606a7f7d2794a9b9f95de03d675e, type: 3}
+  - northEnd: {fileID: 2397417321368042508, guid: ebd9fda57763aa748958d797819987bf, type: 3}
+  - northWall: {fileID: 2072991187229194307, guid: 9f6bfc44751384043a523f9d82d30350, type: 3}
+  - northWestCorner: {fileID: 8206122716793949082, guid: b440cf5c5f68bfe468ca11f68cd189f1, type: 3}
+  - southEastCorner: {fileID: 566316746657203791, guid: ce7018bd357bb4e40a8d1ccfff3b4fa4, type: 3}
+  - southEnd: {fileID: 4644188045852925060, guid: 470ed227bee7e7e4b8a6acfd6d5998e5, type: 3}
+  - southWall: {fileID: 928381462693146286, guid: ceb598845afa10e47a0c871e85f4f98a, type: 3}
+  - southWestCorner: {fileID: 1607514827011508728, guid: 2bea6076d037f4643a0d863def08f158, type: 3}
+  - verticalHall: {fileID: 3751571354035690157, guid: 6b367352558d35147a45a1f76ffc3caa, type: 3}
+  - wall: {fileID: 1860967168988086388, guid: 3471422d86ad6e544ae27d3d137cb8fa, type: 3}
+  - westEnd: {fileID: 3818260200151123229, guid: 5075218d8083f134cbe4ed3efc62fad6, type: 3}
+  - westWall: {fileID: 2157545523378699015, guid: 0630c46bc75e6944ab0c38f2bbec5084, type: 3}
+  - vAsset: {fileID: 9197481963319205126, guid: 85897de5f43fd67439fb19cb7258e466, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
