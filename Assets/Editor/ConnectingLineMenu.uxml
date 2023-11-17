@@ -1,0 +1,5 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <uie:ObjectField label="TargetA" name="TargetA" type="UnityEngine.Transform, UnityEngine.CoreModule" />
+    <uie:ObjectField label="TargetB" name="TargetB" type="UnityEngine.Transform, UnityEngine.CoreModule" />
+    <ui:Toggle label="BLive" name="BLive" />
+</ui:UXML>

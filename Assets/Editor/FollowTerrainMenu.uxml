@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <uie:ObjectField label="TargetA" name="PosA" type="UnityEngine.Transform, UnityEngine.CoreModule" style="height: 30px;" />
+    <uie:ObjectField label="TargetB" name="PosB" type="UnityEngine.Transform, UnityEngine.CoreModule" style="height: 30px; justify-content: center; align-self: auto; flex-direction: row; position: relative; overflow: hidden;" />
+    <ui:VisualElement style="flex-grow: 0; align-self: flex-start; flex-direction: row; height: auto; min-height: 10px;">
+        <ui:Toggle label="Draw Line&#10;" name="DrawLine" style="width: 50%; justify-content: flex-start; align-items: center; flex-basis: 50%; flex-shrink: 0;" />
+        <ui:Toggle label="Conform" name="Conform" style="width: 50%;" />
+    </ui:VisualElement>
+    <ui:Button text="Lock Objects" parse-escape-sequences="true" display-tooltip-when-elided="true" name="LockObjects" style="justify-content: center;" />
+    <ui:Button text="Clear Cache" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ClearCache" style="justify-content: center;" />
+</ui:UXML>

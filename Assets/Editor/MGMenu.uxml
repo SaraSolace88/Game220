@@ -2,4 +2,5 @@
     <ui:Button text="Generate" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Generate" />
     <ui:IntegerField label="Amount" value="0" name="Amount" />
     <ui:Toggle label="Show Walls" name="ShowWalls" value="true" />
+    <uie:ObjectField label="Location" name="Location" />
 </ui:UXML>

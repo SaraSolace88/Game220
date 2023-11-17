@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.UIElements;
-using UnityEditor.Search;
+using UnityEditor.UIElements;
 
 public class UIDemo : EditorWindow
 {
@@ -23,12 +23,12 @@ public class UIDemo : EditorWindow
     {
         rootVisualElement.Add(vAsset.Instantiate());
 
-        Button printStuff = rootVisualElement.Q<Button>("Print");
-        printStuff.clicked += () => PrintStuff();
-
         bMakeLive = rootVisualElement.Q<Toggle>("MakeLive");
         age = rootVisualElement.Q<IntegerField>("Age");
         target = rootVisualElement.Q<ObjectField>("Target");
+
+        Button printStuff = rootVisualElement.Q<Button>("Print");
+        printStuff.clicked += () => PrintStuff();
     }
 
     private void PrintStuff()

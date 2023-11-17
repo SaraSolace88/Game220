@@ -1,19 +1,18 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static UnityEngine.GraphicsBuffer;
+using UnityEditor.UIElements;
 
 [ExecuteInEditMode]
 public class MazeGeneratorEditor : EditorWindow
 {
     //if no open direction - move to new block and check directions again
-    [SerializeField] private GameObject floor, EastEnd, EastWall, HorizontalHall, northEastCorner, northEnd, northWall, northWestCorner, southEastCorner, southEnd, southWall, southWestCorner, verticalHall, westEnd, westWall;
+    private GameObject instantiatedPrefab, floor, EastEnd, EastWall, HorizontalHall, northEastCorner, northEnd, northWall, 
+                       northWestCorner, southEastCorner, southEnd, southWall, southWestCorner, verticalHall, westEnd, westWall;
     
     private int count;
     private List<Vector3> directions = new List<Vector3> { new Vector3(0, 0, 1), new Vector3(1, 0, 0), new Vector3(0, 0, -1), new Vector3(-1, 0, 0)};
-    private GameObject instantiatedPrefab;
     private Vector3 cachePosition, desiredDirection;
     private List<GameObject> flooring = new List<GameObject>(); //initialize the list
     private List<GameObject> walls = new List<GameObject>();
@@ -33,36 +32,35 @@ public class MazeGeneratorEditor : EditorWindow
     public void CreateGUI()
     {
         rootVisualElement.Add(vAsset.Instantiate());
-        SetupButtonHandler();
-    }
 
-    private void SetupButtonHandler()
-    {
-        VisualElement root = rootVisualElement;
-
-        Button generate = rootVisualElement.Q<Button>("Generate");
-        RegisterHandler(generate);
-    }
-
-    private void RegisterHandler(Button button)
-    {
-        button.RegisterCallback<ClickEvent>(PrintClickMessage);
-    }
-
-    private void PrintClickMessage(ClickEvent evt)
-    {
-        VisualElement root = rootVisualElement;
-
-        //Because of the names we gave the buttons and toggles, we can use the
-        //button name to find the toggle name.
         lWalls = rootVisualElement.Q<Toggle>("ShowWalls").value;
         count = rootVisualElement.Q<IntegerField>("Amount").value;
-        Button generate = evt.currentTarget as Button;
+
+        Button generate = rootVisualElement.Q<Button>("Generate");
         generate.clicked += () => GenerateFloors();
+
+        floor = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/Floor.prefab", typeof(GameObject));
+        EastEnd = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/EastEnd.prefab", typeof(GameObject));
+        EastWall = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/EastWall.prefab", typeof(GameObject));
+        HorizontalHall = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/HorizontalHall.prefab", typeof(GameObject));
+        northEastCorner = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/NorthEastCorner.prefab", typeof(GameObject));
+        northEnd = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/NorthEnd.prefab", typeof(GameObject));
+        northWall = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/NorthWall.prefab", typeof(GameObject));
+        northWestCorner = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/NorthWestCorner.prefab", typeof(GameObject));
+        southEastCorner = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/SouthEastCorner.prefab", typeof(GameObject));
+        southEnd = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/SouthEnd.prefab", typeof(GameObject));
+        southWall = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/SouthWall.prefab", typeof(GameObject));
+        southWestCorner = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/SouthWestCorner.prefab", typeof(GameObject));
+        verticalHall = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/VerticalHall.prefab", typeof(GameObject));
+        westEnd = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/WestEnd.prefab", typeof(GameObject));
+        westWall = (GameObject)AssetDatabase.LoadAssetAtPath("Assets/Prefabs/WestWall.prefab", typeof(GameObject));
     }
 
     public void GenerateFloors()
     {
+        lWalls = rootVisualElement.Q<Toggle>("ShowWalls").value;
+        count = rootVisualElement.Q<IntegerField>("Amount").value;
+
         foreach (GameObject go in flooring)  //delete all elements in the list
         {
             DestroyImmediate(go);
@@ -75,7 +73,9 @@ public class MazeGeneratorEditor : EditorWindow
         }
         walls.Clear(); //remove all elements in the list
 
-        cachePosition = Vector3.zero;
+        GameObject tmp = (GameObject)rootVisualElement.Q<ObjectField>("Location").value;
+        cachePosition = tmp.transform.position;
+
         for (int i = 0; i < count; i++)
         {
             //randomize a direction
@@ -168,7 +168,6 @@ public class MazeGeneratorEditor : EditorWindow
             if (north || east || south || west)
             {
                 instantiatedPrefab.transform.position = go.transform.position;
-                Debug.Log(instantiatedPrefab.transform.position);
                 walls.Add(instantiatedPrefab);
             }
         }
