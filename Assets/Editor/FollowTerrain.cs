@@ -11,13 +11,11 @@ public class FollowTerrain : EditorWindow
     private Toggle draw, conform;
     private List<Transform> transforms = new List<Transform>();
     private RaycastHit hit;
-    private GameObject ground;
     private LayerMask mask;
      
     private void OnEnable()
     {
         SceneView.duringSceneGui += SceneGUI;
-        ground = FindAnyObjectByType<MeshCollider>().gameObject;
         mask = LayerMask.GetMask("Default");
     }
 
@@ -78,14 +76,14 @@ public class FollowTerrain : EditorWindow
                 for (int x = 0; x < transforms.Count; x++)
                 {
                     Vector3 tmp = Vector3.Lerp(posALoc.position, posBLoc.position, x / (float)transforms.Count);
-                    Vector3 tmp2 = transforms[x].position;
-                    tmp.y = tmp2.y;
                     if (Physics.Raycast(tmp + Vector3.up * 20, Vector3.down, out hit, 30f, mask))
                     {
-                        Debug.Log(hit.transform.gameObject.name);
-                        tmp.y = hit.point.y;
+                        transforms[x].position = hit.point;
                     }
-                    transforms[x].position = tmp;
+                    else
+                    {
+                        transforms[x].position = Vector3.Lerp(posALoc.position, posBLoc.position, x / (float)transforms.Count);
+                    }
                 }
             }
             else
